@@ -12,9 +12,9 @@ import { colors } from "../../styles/globalStyle";
 const { Title, Link } = Typography;
 
 const CarouselWrapper = styled.div`
-  margin-top:24px;
-  .swiper-wrapper{
-    padding-bottom:32px;
+  margin-top: 24px;
+  .swiper-wrapper {
+    padding-bottom: 32px;
   }
   .swiper-slide {
     background: ${colors.white};
@@ -23,7 +23,7 @@ const CarouselWrapper = styled.div`
   }
   .swiper-pagination {
     bottom: 0;
-    margin-top:24px;
+    margin-top: 24px;
   }
 `;
 const CarouselSlideContent = styled.div`
@@ -60,29 +60,42 @@ const Carousel = (props) => {
         pagination={true}
         modules={[Pagination]}
       >
-        {props.data.map((item, i)=>(
+        {props.data.map((item, i) => (
           <SwiperSlide key={i}>
-          <CarouselSlideContent>
-            <CarouselSlideImg src={item.imageSrc} width="96px" height="160px" />
-            <CarouselSlideTitle>
-              <Title
-                level={5}
-                style={{ fontSize: 14, color: `${colors.black}`, margin: "0 0 10px 0" }}
-              >
-                {item.title}
-              </Title>
-              <Title
-                level={5}
-                style={{ fontSize: 14, color: `${colors.grayInfo}`, margin: 0 }}
-              >
-                {item.description}
-              </Title>
-            </CarouselSlideTitle>
-            <Link href="#"><ArrowRight /></Link>
-          </CarouselSlideContent>
-        </SwiperSlide>
+            <CarouselSlideContent>
+              <CarouselSlideImg
+                src={item.imageSrc}
+                width="96px"
+                height="160px"
+              />
+              <CarouselSlideTitle>
+                <Title
+                  level={5}
+                  style={{
+                    fontSize: 14,
+                    color: `${colors.black}`,
+                    margin: "0 0 10px 0",
+                  }}
+                >
+                  {item.title}
+                </Title>
+                <Title
+                  level={5}
+                  style={{
+                    fontSize: 14,
+                    color: `${colors.grayInfo}`,
+                    margin: 0,
+                  }}
+                >
+                  {item.description}
+                </Title>
+              </CarouselSlideTitle>
+              <Link href="#">
+                <ArrowRight />
+              </Link>
+            </CarouselSlideContent>
+          </SwiperSlide>
         ))}
-
       </Swiper>
     </CarouselWrapper>
   );

@@ -33,7 +33,7 @@ const DashboardListHeader = styled.div`
   justify-content: space-between;
   align-items: baseline;
   margin-bottom: 24px;
-  @media (max-width: ${breakpoints.xxs}){
+  @media (max-width: ${breakpoints.xxs}) {
     flex-direction: column;
   }
   a {
@@ -55,7 +55,7 @@ const DashboardAccountContainer = styled.div`
   @media (max-width: ${breakpoints.md}) {
     margin: 50px 16px 0 16px;
   }
-  @media (max-width:${breakpoints.xs}){
+  @media (max-width: ${breakpoints.xs}) {
     flex-direction: column;
   }
 `;
@@ -70,7 +70,7 @@ const DashboardImg = styled.img`
   background-color: ${(p) => (p.background ? p.background : "transparent")};
   border-radius: ${(p) => (p.borderRadius ? p.borderRadius : 0)};
   @media (max-width: ${breakpoints.md}) {
-    margin:auto;
+    margin: auto;
   }
 `;
 const Dashboard = () => {
@@ -79,7 +79,7 @@ const Dashboard = () => {
       <HeaderComponent />
       <DashboardCarouselContainer>
         <Title level={5}>SİZE ÖZEL KAMPANYALAR</Title>
-        <Carousel data = {dataCarousel} />
+        <Carousel data={dataCarousel} />
       </DashboardCarouselContainer>
       <DashboardListContainer>
         <DashboardListHeader>
@@ -93,7 +93,10 @@ const Dashboard = () => {
       </DashboardListContainer>
       <DashboardAccountContainer>
         <DashboardAccountCampaign>
-          <Title level={4} style={{ color: `${colors.black}`, margin: "0 0 16px 0" }}>
+          <Title
+            level={4}
+            style={{ color: `${colors.black}`, margin: "0 0 16px 0" }}
+          >
             Sosyal hesaplar sizlerle!
           </Title>
           <Paragraph

@@ -41,6 +41,11 @@ const PagerListWrapper = styled.div`
       &-active {
         border-color: transparent;
         background-color: ${colors.primary};
+        &:hover {
+          a {
+            color: ${colors.white};
+          }
+        }
         a {
           color: ${colors.white};
         }

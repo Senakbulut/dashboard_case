@@ -108,36 +108,34 @@ export const HeaderComponent = () => {
     setMenuItem(result);
   };
   const getUserDetail = async () => {
-    let userLocal = localStorage.getItem('user');
-    let id = JSON.parse(userLocal)
+    let userLocal = localStorage.getItem("user");
+    let id = JSON.parse(userLocal);
     const detailUser = await getUser(id.id);
-    setUserDetail(detailUser?.user)
-    console.log(detailUser?.user)
-    console.log(detailUser)
+    setUserDetail(detailUser?.user);
+    console.log(detailUser?.user);
+    console.log(detailUser);
   };
   useEffect(() => {
     getMenuItems();
-    getUserDetail()
+    getUserDetail();
   }, []);
 
   return (
     <Header>
       <HeaderWrapper>
         <MenuContainer>
-          <Link href="https://fups.com/" style={{lineHeight:"normal"}}>
-          <HeaderImg src={Logo} />
+          <Link href="https://fups.com/" style={{ lineHeight: "normal" }}>
+            <HeaderImg src={Logo} />
           </Link>
           <Menu mode="horizontal" className="header__menu">
             <Menu.SubMenu key="SubMenu1" title="Hesaplar" icon={<Accounts />}>
               {menuItem?.map(
                 (itm, id) =>
-                  itm.id < 3 && (
-                    <Menu.Item key={id}>{itm.name}</Menu.Item>
-                  )
+                  itm.id < 3 && <Menu.Item key={id}>{itm.name}</Menu.Item>
               )}
             </Menu.SubMenu>
             <Menu.SubMenu key="SubMenu2" title="Kartlar" icon={<Cards />}>
-            {menuItem?.map(
+              {menuItem?.map(
                 (itm, id) =>
                   itm.name === "Times Square" && (
                     <Menu.Item key={id}>{itm.name}</Menu.Item>
@@ -151,9 +149,7 @@ export const HeaderComponent = () => {
             >
               {menuItem?.map(
                 (itm, id) =>
-                  itm.id > 4 && (
-                    <Menu.Item key={id}>{itm.name}</Menu.Item>
-                  )
+                  itm.id > 4 && <Menu.Item key={id}>{itm.name}</Menu.Item>
               )}
             </Menu.SubMenu>
             <Menu.SubMenu
@@ -161,7 +157,7 @@ export const HeaderComponent = () => {
               title="Kampanyalar"
               icon={<Campaigns />}
             >
-             {menuItem?.map(
+              {menuItem?.map(
                 (itm, id) =>
                   itm.latitude === 35.3606422 && (
                     <Menu.Item key={id}>{itm.name}</Menu.Item>
@@ -170,28 +166,37 @@ export const HeaderComponent = () => {
             </Menu.SubMenu>
           </Menu>
         </MenuContainer>
-          <MenuUserInfo onClick={showDrawer} key={userDetail?.id}>
+        <MenuUserInfo onClick={showDrawer} key={userDetail?.id}>
           <Badge count={12}>
-            <Avatar src={userDetail?.avatar} style={{width:40, height:40}}/>
+            <Avatar
+              src={userDetail?.avatar}
+              style={{ width: 40, height: 40 }}
+            />
           </Badge>
           <div>
-            <Title level={5}>{userDetail?.fname} {userDetail?.lname}</Title>
+            <Title level={5}>
+              {userDetail?.fname} {userDetail?.lname}
+            </Title>
             <Title level={5}>Standart</Title>
           </div>
         </MenuUserInfo>
       </HeaderWrapper>
       <MobileMenuContainer>
         <HeaderImg src={Logo} height="44px" width="88px" />
-          <MenuUserInfo onClick={showDrawer} key={userDetail?.id}>
+        <MenuUserInfo onClick={showDrawer} key={userDetail?.id}>
           <Badge count={12}>
-            <Avatar src={userDetail?.avatar} style={{width:40, height:40}}/>
+            <Avatar
+              src={userDetail?.avatar}
+              style={{ width: 40, height: 40 }}
+            />
           </Badge>
           <div>
-            <Title level={5}>{userDetail?.fname} {userDetail?.lname}</Title>
+            <Title level={5}>
+              {userDetail?.fname} {userDetail?.lname}
+            </Title>
             <Title level={5}>Standart</Title>
           </div>
         </MenuUserInfo>
-        
 
         <Drawer placement="right" onClose={onClose} open={open}>
           <Menu mode="vertical" className="header__menu-mobile">

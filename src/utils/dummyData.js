@@ -107,33 +107,35 @@ export const dataList = [
 ];
 export const dataCarousel = [
   {
-    imageSrc:`${Turkcell}`,
-    title:"TURKCELL KAMPANYASI",
+    imageSrc: `${Turkcell}`,
+    title: "TURKCELL KAMPANYASI",
     description: "Fatura ödemelerinizde her ay 10 TL kazan dilediğince harca.",
   },
   {
-    imageSrc:`${Game}`,
-    title:"OYUN & E-PIN FIRSATI",
+    imageSrc: `${Game}`,
+    title: "OYUN & E-PIN FIRSATI",
     description: "Tüm alışverişlerinizde %20 bonus kazanma fırsatını kaçırma.",
   },
   {
-    imageSrc:`${Process}`,
-    title:"ÜCRETSİZ İŞLEM",
-    description: " Fups App'i hemen indir! Ücretsiz işlem fırsatından sende yararlan.",
+    imageSrc: `${Process}`,
+    title: "ÜCRETSİZ İŞLEM",
+    description:
+      " Fups App'i hemen indir! Ücretsiz işlem fırsatından sende yararlan.",
   },
   {
-    imageSrc:`${Turkcell}`,
-    title:"TURKCELL KAMPANYASI",
+    imageSrc: `${Turkcell}`,
+    title: "TURKCELL KAMPANYASI",
     description: "Fatura ödemelerinizde her ay 10 TL kazan dilediğince harca.",
   },
   {
-    imageSrc:`${Game}`,
-    title:"OYUN & E-PIN FIRSATI",
+    imageSrc: `${Game}`,
+    title: "OYUN & E-PIN FIRSATI",
     description: "Tüm alışverişlerinizde %20 bonus kazanma fırsatını kaçırma.",
   },
   {
-    imageSrc:`${Process}`,
-    title:"ÜCRETSİZ İŞLEM",
-    description: " Fups App'i hemen indir! Ücretsiz işlem fırsatından sende yararlan.",
+    imageSrc: `${Process}`,
+    title: "ÜCRETSİZ İŞLEM",
+    description:
+      " Fups App'i hemen indir! Ücretsiz işlem fırsatından sende yararlan.",
   },
-]
+];
