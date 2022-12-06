@@ -15,7 +15,7 @@ import {
   InputStyle,
   ButtonStyle,
   SelectStyle,
-} from "../../helpers/sharedStyles";
+} from "../../styles/sharedStyles";
 
 const { Title, Paragraph, Link } = Typography;
 const { Option } = Select;

@@ -1,4 +1,4 @@
-import { colors } from "../styles/globalStyle";
+import { colors } from "./globalStyle";
 
 export const InputStyle = {
   maxWidth: "432px",
