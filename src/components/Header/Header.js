@@ -8,6 +8,7 @@ import Transactions from "../../assets/icons/transactions";
 import Campaigns from "../../assets/icons/campaigns";
 import { breakpoints, colors } from "../../styles/globalStyle";
 import { getMenu } from "../../api/services/menu";
+import { getUser } from "../../api/services/user";
 
 const { Header } = Layout;
 const { Title, Link } = Typography;
@@ -94,6 +95,7 @@ const MenuUserInfo = styled.div`
 export const HeaderComponent = () => {
   const [open, setOpen] = useState(false);
   const [menuItem, setMenuItem] = useState();
+  const [userDetail, setUserDetail] = useState();
 
   const showDrawer = () => {
     setOpen(true);
@@ -105,8 +107,17 @@ export const HeaderComponent = () => {
     const result = await getMenu();
     setMenuItem(result);
   };
+  const getUserDetail = async () => {
+    let userLocal = localStorage.getItem('user');
+    let id = JSON.parse(userLocal)
+    const detailUser = await getUser(id.id);
+    setUserDetail(detailUser?.user)
+    console.log(detailUser?.user)
+    console.log(detailUser)
+  };
   useEffect(() => {
     getMenuItems();
+    getUserDetail()
   }, []);
 
   return (
@@ -159,27 +170,28 @@ export const HeaderComponent = () => {
             </Menu.SubMenu>
           </Menu>
         </MenuContainer>
-        <MenuUserInfo>
-          <Badge count={1}>
-            <Avatar src="https://joeschmoe.io/api/v1/random" />
+          <MenuUserInfo onClick={showDrawer} key={userDetail?.id}>
+          <Badge count={12}>
+            <Avatar src={userDetail?.avatar} style={{width:40, height:40}}/>
           </Badge>
           <div>
-            <Title level={5}>Sercan Cihangir</Title>
+            <Title level={5}>{userDetail?.fname} {userDetail?.lname}</Title>
             <Title level={5}>Standart</Title>
           </div>
         </MenuUserInfo>
       </HeaderWrapper>
       <MobileMenuContainer>
         <HeaderImg src={Logo} height="44px" width="88px" />
-        <MenuUserInfo onClick={showDrawer}>
-          <Badge count={1}>
-            <Avatar src="https://joeschmoe.io/api/v1/random" />
+          <MenuUserInfo onClick={showDrawer} key={userDetail?.id}>
+          <Badge count={12}>
+            <Avatar src={userDetail?.avatar} style={{width:40, height:40}}/>
           </Badge>
           <div>
-            <Title level={5}>Sercan Cihangir</Title>
+            <Title level={5}>{userDetail?.fname} {userDetail?.lname}</Title>
             <Title level={5}>Standart</Title>
           </div>
         </MenuUserInfo>
+        
 
         <Drawer placement="right" onClose={onClose} open={open}>
           <Menu mode="vertical" className="header__menu-mobile">

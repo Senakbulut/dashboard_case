@@ -32,6 +32,9 @@ const PagerListWrapper = styled.div`
     }
     &-item {
       background-color: ${colors.background};
+      display: flex;
+      align-items: center;
+      justify-content: center;
       a {
         color: ${colors.grayTitle};
       }
